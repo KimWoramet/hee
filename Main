@@ -552,7 +552,7 @@ w:AddToggle(
                                 "TeleportPlayers"
                             )
                         end
-                        if Lvl >= 131 then
+                        if Lvl > 131 and Lvl < 141 then
                             wait(1)
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
                                 "CreateRoom",
@@ -567,7 +567,7 @@ w:AddToggle(
                                 "TeleportPlayers"
                             )
                         end
-                        if Lvl < 141 then
+                        if Lvl >= 141 then
                             wait(1)
                             game:GetService("ReplicatedStorage").RemoteFunctions.MainRemoteFunction:InvokeServer(
                                 "CreateRoom",
