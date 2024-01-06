@@ -1,4 +1,3 @@
-
 if not game:IsLoaded() then
     game.Loaded:Wait()
 end
@@ -63,7 +62,7 @@ _G.Settings = {
     Autoraid = false,
     kickrejoin = false
 }
-local a = "Shiina Hub"
+local a = "z2qdev"
 local b = "AnimeDimension.lua"
 function saveSettings()
     local c = game:GetService("HttpService")
@@ -1935,6 +1934,60 @@ E:AddToggle(
         end
     }
 )
+E:AddToggle(
+    {
+        Name = "AutoFruitSkill1",
+        Default = _G.Settings.AutoFruitSkill1,
+        Color = Color3.fromRGB(255,215,0),
+        Callback = function(H)
+            _G.Settings.AutoFruitSkill1 = H
+            saveSettings()
+            task.spawn(
+                function()
+                    while task.wait(_G.Settings.skilldelay) do
+                        if not _G.Settings.AutoFruitSkill1 then
+                            break
+                        end
+                        for m, n in pairs(
+                            getconnections(
+                                game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder.SkillFruit1.MouseButton1Click
+                            )
+                        ) do
+                            n:Fire()
+                        end
+                    end
+                end
+            )
+        end
+    }
+)
+E:AddToggle(
+    {
+        Name = "AutoFruitSkill2",
+        Default = _G.Settings.AutoFruitSkill2,
+        Color = Color3.fromRGB(255,215,0),
+        Callback = function(H)
+            _G.Settings.AutoFruitSkill2 = H
+            saveSettings()
+            task.spawn(
+                function()
+                    while task.wait(_G.Settings.skilldelay) do
+                        if not _G.Settings.AutoFruitSkill2 then
+                            break
+                        end
+                        for m, n in pairs(
+                            getconnections(
+                                game.Players.LocalPlayer.PlayerGui.UniversalGui.UniversalCenterUIFrame.SlotsHolder.SkillFruit2.MouseButton1Click
+                            )
+                        ) do
+                            n:Fire()
+                        end
+                    end
+                end
+            )
+        end
+    }
+)
 
 
 E:AddSlider(
@@ -2005,13 +2058,13 @@ w:AddLabel("‼️ Auto Lvl + Raid + Boss Rush ")
 w:AddLabel("‼️ Specific + Raid + Boss Rush ")
 w:AddLabel("‼️ Trial + Raid + Boss Rush ")
 G:AddButton(
-    {Name = "Script by Shiina Hub", Callback = function()
-            setclipboard("")
+    {Name = "Script by z2qdev", Callback = function()
+            setclipboard("z2qdev")
         end}
 )
 G:AddButton(
     {Name = "Discord", Callback = function()
-            setclipboard("")
+            setclipboard("https://discord.gg/yF4hc2pm")
         end}
 )
 G:AddTextbox(
@@ -2023,5 +2076,5 @@ G:AddTextbox(
 
 G:AddLabel("LastestUpdate : 28/6/2022 ")
 
-u:MakeNotification({Name = "", Content = "Game: Anime Dimension", Time = 15})
+u:MakeNotification({Name = "z2qdev", Content = "Game: Anime Dimension", Time = 15})
 u:Init()
